@@ -19,7 +19,7 @@ class CreateMasterItemsTable extends Migration
             $table->integer('prin');
             $table->integer('chocolate');
             $table->integer('fresh_berries');
-            $table->integer('raiins');
+            $table->integer('raisins');
             $table->integer('pineapple');
             $table->integer('vanilla_ice_cream');
             $table->integer('brown_rice');

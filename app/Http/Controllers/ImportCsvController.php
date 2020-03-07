@@ -42,7 +42,7 @@ class ImportCsvController extends Controller
             $master_item->prin = $row[1];
             $master_item->chocolate = $row[2];
             $master_item->fresh_berries = $row[3];
-            $master_item->raiins = $row[4];
+            $master_item->raisins = $row[4];
             $master_item->pineapple = $row[5];
             $master_item->vanilla_ice_cream = $row[6];
             $master_item->brown_rice = $row[7];
@@ -67,7 +67,7 @@ class ImportCsvController extends Controller
                     'prin' => $row[1],
                     'chocolate' => $row[2],
                     'fresh_berries' => $row[3],
-                    'raiins' => $row[4],
+                    'raisins' => $row[4],
                     'pineapple' => $row[5],
                     'vanilla_ice_cream' => $row[6],
                     'brown_rice' => $row[7],
