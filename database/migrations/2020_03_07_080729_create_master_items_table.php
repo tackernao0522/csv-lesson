@@ -14,30 +14,29 @@ class CreateMasterItemsTable extends Migration
     public function up()
     {
         Schema::create('master_items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('combination_id');
-            $table->integer('prin');
-            $table->integer('chocolate');
-            $table->integer('fresh_berries');
-            $table->integer('raisins');
-            $table->integer('pineapple');
-            $table->integer('vanilla_ice_cream');
-            $table->integer('brown_rice');
-            $table->integer('roasted_soybeans');
-            $table->integer('coconut');
-            $table->integer('honey');
-            $table->integer('miso');
-            $table->string('personal_flavor_print_file_name');
-            $table->string('personal_top_flavor_1');
-            $table->string('personal_top_flavor_2');
-            $table->string('personal_top_flavor_3');
-            $table->string('recommendation_1_id');
-            $table->string('recommendation_1_title');
-            $table->integer('recommendation_1_compatibillity');
-            $table->string('recommendation_2_id');
-            $table->string('recommendation_2_title');
-            $table->integer('recommendation_2_compatibility');
+            $table->integer('id')->unsigned();
+            $table->tinyinteger('q01')->unsigned();
+            $table->tinyinteger('q02')->unsigned();
+            $table->tinyinteger('q03')->unsigned();
+            $table->tinyinteger('q04')->unsigned();
+            $table->tinyinteger('q05')->unsigned();
+            $table->tinyinteger('q06')->unsigned();
+            $table->tinyinteger('q07')->unsigned();
+            $table->tinyinteger('q08')->unsigned();
+            $table->tinyinteger('q09')->unsigned();
+            $table->tinyinteger('q10')->unsigned();
+            $table->tinyinteger('q11')->unsigned();
+            $table->string('fp_img');
+            $table->integer('flavor_id1')->unsigned();
+            $table->integer('flavor_id2')->unsigned();
+            $table->integer('flavor_id3')->unsigned();
+            $table->integer('recommend_item_id1')->unsigned();
+            $table->tinyinteger('compatibility1')->unsigned();
+            $table->integer('recommend_item_id2')->unsigned();
+            $table->tinyinteger('compatibility2')->unsigned();
             $table->timestamps();
+
+            // $table->primary('id');
         });
     }
 
