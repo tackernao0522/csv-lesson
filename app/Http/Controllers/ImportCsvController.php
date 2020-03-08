@@ -92,6 +92,62 @@ class ImportCsvController extends Controller
         }
     }
 
+    // 大量データCSV作成
+    public function create_csv()
+    {   
+        $fp = fopen('big_data.csv', 'w');
+
+        $header = ['combination_id', 'prin', 'chocolate', 'fresh_berries', 'raisins', 'pineapple', 'vanilla_ice_cream', 'brown_rice', 'roasted_soybeans', 'coconut', 'honey', 'miso', 'personal_flavor_print_file_name', 'personal_top_flavor_1', 'personal_top_flavor_2', 'personal_top_flavor_3', 'recommendation_1_id', 'recommendation_1_title', 'recommendation_1_compatibillity', 'recommendation_2_id', 'recommendation_2_title', 'recommendation_2_compatibility'];
+        fputcsv($fp, $header);
+
+        for ($i = 0; $i < 8750; $i++) {
+            $big_items = [
+                [1,1,1,1,1,1,1,1,1,1,1,1,'1.png','Sweet','Starchy','Toasted','CCC05','フルーツグラノラ  朝摘みいちご',82,'CCC08','ハーシー  とろけるチョコレート    袋',64],
+                [2,1,1,1,1,1,1,1,1,1,1,2,'2.png','Sweet','Starchy','Bitter','CCC05','フルーツグラノラ  朝摘みいちご',88,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',72],
+                [3,1,1,1,1,1,1,1,1,1,1,3,'3.png','Sweet','Starchy','Bitter','CCC05','フルーツグラノラ  朝摘みいちご',93,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',79],
+                [4,1,1,1,1,1,1,1,1,1,2,1,'4.png','Sweet','Toasted','Toasted','CCC05','フルーツグラノラ  朝摘みいちご',87,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',73],
+                [5,1,1,1,1,1,1,1,1,1,2,2,'5.png','Sweet','Starchy','Toasted','CCC05','フルーツグラノラ  朝摘みいちご',93,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',82],
+                [6,1,1,1,1,1,1,1,1,1,2,3,'6.png','Sweet','Starchy','Toasted','CCC05','フルーツグラノラ  朝摘みいちご',96,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',88],
+                [7,1,1,1,1,1,1,1,1,1,3,1,'7.png','Sweet','Toasted','Starchy','CCC05','フルーツグラノラ  朝摘みいちご',91,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',83],
+                [8,1,1,1,1,1,1,1,1,1,3,2,'8.png','Sweet','Toasted','Starchy','CCC05','フルーツグラノラ  朝摘みいちご',95,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',90],
+                [9,1,1,1,1,1,1,1,1,1,3,3,'8.png','Sweet','Starchy','Toasted','CCC05','フルーツグラノラ  朝摘みいちご',98,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',93],
+                [10,1,1,1,1,1,1,1,1,2,1,1,'9.png','Sweet','Starchy','Tropical','CCC05','フルーツグラノラ  朝摘みいちご',86,'CCC18','ふわサクフルーツ&ナッツグラノーラ',70],
+                [11,1,1,1,1,1,1,1,1,2,1,2,'10.png','Sweet','Starchy','Bitter','CCC05','フルーツグラノラ  朝摘みいちご',91,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',79],
+                [12,1,1,1,1,1,1,1,1,2,1,3,'11.png','Sweet','Starchy','Bitter','CCC05','フルーツグラノラ  朝摘みいちご',95,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',85],
+                [13,1,1,1,1,1,1,1,1,2,2,1,'12.png','Sweet','Toasted','Toasted','CCC05','フルーツグラノラ  朝摘みいちご',90,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',80],
+                [14,1,1,1,1,1,1,1,1,2,2,2,'13.png','Sweet','Starchy','Toasted','CCC05','フルーツグラノラ  朝摘みいちご',95,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',87],
+                [15,1,1,1,1,1,1,1,1,2,2,3,'14.png','Sweet','Starchy','Fruity','CCC05','フルーツグラノラ  朝摘みいちご',98,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',91],
+                [16,1,1,1,1,1,1,1,1,2,3,1,'15.png','Sweet','Toasted','Caramelized','CCC05','フルーツグラノラ  朝摘みいちご',93,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',87],
+                [17,1,1,1,1,1,1,1,1,2,3,2,'16.png','Sweet','Toasted','Starchy','CCC05','フルーツグラノラ  朝摘みいちご',97,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',92],
+                [18,1,1,1,1,1,1,1,1,2,3,3,'17.png','Sweet','Fruity','Starchy','CCC05','フルーツグラノラ  朝摘みいちご',99,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',95],
+                [19,1,1,1,1,1,1,1,1,3,1,1,'18.png','Sweet','Tropical','Starchy','CCC05','フルーツグラノラ  朝摘みいちご',88,'CCC12','フルーツグラノラ    ハーフ',76],
+                [20,1,1,1,1,1,1,1,1,3,1,2,'19.png','Sweet','Tropical','Starchy','CCC05','フルーツグラノラ  朝摘みいちご',93,'CCC16','ハーシー  チョコビッツ    ミルキークリーム',82],
+            ];
+
+            fputcsv($fp, $big_items[0]);
+            fputcsv($fp, $big_items[1]);
+            fputcsv($fp, $big_items[2]);
+            fputcsv($fp, $big_items[3]);
+            fputcsv($fp, $big_items[4]);
+            fputcsv($fp, $big_items[5]);
+            fputcsv($fp, $big_items[6]);
+            fputcsv($fp, $big_items[7]);
+            fputcsv($fp, $big_items[8]);
+            fputcsv($fp, $big_items[9]);
+            fputcsv($fp, $big_items[10]);
+            fputcsv($fp, $big_items[11]);
+            fputcsv($fp, $big_items[12]);
+            fputcsv($fp, $big_items[13]);
+            fputcsv($fp, $big_items[14]);
+            fputcsv($fp, $big_items[15]);
+            fputcsv($fp, $big_items[16]);
+            fputcsv($fp, $big_items[17]);
+            fputcsv($fp, $big_items[18]);
+            fputcsv($fp, $big_items[19]);
+        }
+        fclose($fp);
+    }
+
     // 作成してあるCSVデータファイルから読み込みテキストファイルを生成してそれに読み込む
     public function read_csv()
     {
