@@ -14,3 +14,4 @@
 Route::get('import-csv', 'ImportCsvController@read_csv');
 Route::get('import_db', 'ImportCsvController@import_db');
 Route::get('create_csv', 'ImportCsvController@create_csv');
+Route::get('big_import', 'ImportCsvController@big_import');
